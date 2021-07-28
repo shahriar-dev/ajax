@@ -1,7 +1,7 @@
 <?php
-// require "./Controllers/Database/dbConnect.php";
-require "./Controllers/Database/dbGetAllUsers.php";
-require "./Controllers/Database/dbGetUser.php";
+require "./../../../ajax/Controllers/Database/dbConnect.php";
+require "./../../../ajax/Controllers/Database/dbGetAllUsers.php";
+require "./../../../ajax/Controllers/Database/dbGetUser.php";
 $username = $_GET['username'];
 if (empty($username)) {
     $userList = getAllUsers();
@@ -9,18 +9,19 @@ if (empty($username)) {
     $userList = getUser($username);
 }
 
-echo "<h1>User List</h1>";
-echo "<table>";
-echo "<tr>";
-echo "<th>ID</th>";
-echo "<th>First Name</th>";
-echo "<th>Last Name</th>";
-echo "<th>Username</th>";
-echo "<th>Email</th>";
-echo "<th>Religion</th>";
-echo "<th>Date of Birth</th>";
-echo "</tr>";
 if (count($userList) > 0) {
+
+    echo "<h1>User List</h1>";
+    echo "<table>";
+    echo "<tr>";
+    echo "<th>ID</th>";
+    echo "<th>First Name</th>";
+    echo "<th>Last Name</th>";
+    echo "<th>Username</th>";
+    echo "<th>Email</th>";
+    echo "<th>Religion</th>";
+    echo "<th>Date of Birth</th>";
+    echo "</tr>";
     for ($i = 0; $i < count($userList); $i++) {
         echo "<tr>";
         echo "<td>" . $userList[$i]['user_id'] . "</td>";

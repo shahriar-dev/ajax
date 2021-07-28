@@ -1,5 +1,4 @@
 <?php
-
 function getUser($username)
 {
     $conn = connect();
