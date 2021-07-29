@@ -4,7 +4,9 @@ require "./../../../ajax/Controllers/Database/dbGetAllUsers.php";
 require "./../../../ajax/Controllers/Database/dbGetUser.php";
 $username = $_GET['username'];
 if (empty($username)) {
-    $userList = getAllUsers();
+    echo "<h3>Give a Username</h3>";
+    return;
+    //$userList = getAllUsers();
 } else {
     $userList = getUser($username);
 }
@@ -33,7 +35,7 @@ if (count($userList) > 0) {
         echo "<td>" . $userList[$i]['dob'] . "</td>";
     }
 } else {
-    echo "<h3>No records found!</h3>";
+    echo "<h3>No User found!</h3>";
 }
 
 ?>

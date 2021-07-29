@@ -1,12 +1,9 @@
 <?php
 session_start();
-$user = $_SESSION['id'];
-
-function Test_User_Input($Data)
-{
-    return trim(htmlspecialchars(stripslashes($Data)));
+if (empty($_SESSION['id'])) {
+    header("Location: ./login-form.php");
 }
-
+$user = $_SESSION['id'];
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +19,7 @@ function Test_User_Input($Data)
 <body>
     <h1>Welcome <span style="color: green;"><?php echo $user ?></span> </h1>
     <div>
-        <label for="searchUser">Search </label>
+        <label for="searchUser">Search User</label>
         <input type="text" id="username" placeholder="Please type here...." name="username">
         <label for="searchUser_error" id="searchUser_error"></label>
         <button onclick="fetch()" id="search" value="search" name="search">Search</button>
